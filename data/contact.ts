@@ -4,6 +4,7 @@ import type {
     EnquirySelectionContent,
     ClientEnquiryFormContent,
     ProfessionalEnquiryFormContent,
+    CallbackFormContent,
 } from "@/types/contact";
 
 // ==========================================
@@ -280,3 +281,92 @@ export const professionalEnquiryFormContent = {
 
     submittingLabel: "Submitting enquiry...",
 } as const satisfies ProfessionalEnquiryFormContent;
+
+
+// ==========================================
+// CALLBACK FORM CONTENT
+// ==========================================
+
+export const callbackFormContent = {
+    title: "Request a Callback",
+
+    description:
+        "Leave your details and let us know a convenient time to contact you.",
+
+    // Form section headings
+    sections: {
+        contactDetails: "Your contact details",
+        callbackPreference: "Preferred callback time",
+        additionalInformation: "Additional information",
+    },
+
+    // Reuse existing support categories
+    supportCategoryOptions:
+        clientEnquiryFormContent.supportCategoryOptions,
+
+    // Preferred callback day
+    preferredDayOptions: [
+        {
+            value: "any-weekday",
+            label: "Any weekday",
+        },
+        {
+            value: "monday",
+            label: "Monday",
+        },
+        {
+            value: "tuesday",
+            label: "Tuesday",
+        },
+        {
+            value: "wednesday",
+            label: "Wednesday",
+        },
+        {
+            value: "thursday",
+            label: "Thursday",
+        },
+        {
+            value: "friday",
+            label: "Friday",
+        },
+    ],
+
+    // Preferred callback time
+    preferredTimeOptions: [
+        {
+            value: "any-time",
+            label: "Any time",
+        },
+        {
+            value: "morning",
+            label: "Morning",
+        },
+        {
+            value: "afternoon",
+            label: "Afternoon",
+        },
+    ],
+
+    // Australian timezone information
+    timezoneNotice:
+        "All preferred times are based on Sydney local time. Callback times are subject to availability.",
+
+    // Reuse existing privacy notice
+    privacyNotice:
+        clientEnquiryFormContent.privacyNotice,
+
+    privacyConsent:
+        "I agree to being contacted regarding my callback request.",
+
+    privacyPolicyLabel:
+        clientEnquiryFormContent.privacyPolicyLabel,
+
+    privacyPolicyHref:
+        clientEnquiryFormContent.privacyPolicyHref,
+
+    // Submit button
+    submitLabel: "Request a Callback",
+
+    submittingLabel: "Submitting request...",
+} as const satisfies CallbackFormContent;

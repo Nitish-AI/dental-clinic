@@ -157,3 +157,51 @@ export interface ProfessionalEnquiryFormContent {
     submitLabel: string;
     submittingLabel: string;
 }
+
+// ==========================================
+// CALLBACK FORM TYPES
+// ==========================================
+
+export type CallbackPreferredDay =
+    | "any-weekday"
+    | "monday"
+    | "tuesday"
+    | "wednesday"
+    | "thursday"
+    | "friday";
+
+export type CallbackPreferredTime =
+    | "any-time"
+    | "morning"
+    | "afternoon";
+
+export interface CallbackFormContent {
+    title: string;
+    description: string;
+
+    sections: {
+        contactDetails: string;
+        callbackPreference: string;
+        additionalInformation: string;
+    };
+
+    supportCategoryOptions:
+    readonly FormOption<EnquirySupportCategory>[];
+
+    preferredDayOptions:
+    readonly FormOption<CallbackPreferredDay>[];
+
+    preferredTimeOptions:
+    readonly FormOption<CallbackPreferredTime>[];
+
+    timezoneNotice: string;
+
+    privacyNotice: string;
+    privacyConsent: string;
+
+    privacyPolicyLabel: string;
+    privacyPolicyHref: string;
+
+    submitLabel: string;
+    submittingLabel: string;
+}

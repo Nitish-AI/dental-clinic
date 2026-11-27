@@ -12,6 +12,7 @@ import { contactSectionContent } from "@/data/contact";
 import type { ContactOptionId } from "@/types/contact";
 
 import EnquiryDialog from "@/components/contact/EnquiryDialog";
+import CallbackDialog from "@/components/contact/CallbackDialog";
 
 export default function ServicesEnquiry() {
   const { eyebrow, title, description, options } = contactSectionContent;
@@ -203,38 +204,11 @@ export default function ServicesEnquiry() {
         onOpenChange={(open) => setActiveDialog(open ? "enquiry" : null)}
       />
 
-      {/* Temporary Callback Preview */}
-      {activeDialog === "callback" && (
-        <div
-          role="status"
-          className="
-            relative z-20 mx-auto mt-8
-            max-w-md rounded-xl
-            border border-sky-300/40
-            bg-[#193C60] p-5
-            text-center
-        "
-        >
-          <p className="font-semibold text-white">Request a Callback</p>
-
-          <p className="mt-2 text-sm text-slate-200">
-            This form will be available soon.
-          </p>
-
-          <button
-            type="button"
-            onClick={() => setActiveDialog(null)}
-            className="
-                mt-4 rounded-lg
-                bg-white px-5 py-2
-                text-sm font-semibold
-                text-[#102B50]
-            "
-          >
-            Close
-          </button>
-        </div>
-      )}
+      {/* Callback Dialog */}
+      <CallbackDialog
+        open={activeDialog === "callback"}
+        onOpenChange={(open) => setActiveDialog(open ? "callback" : null)}
+      />
     </section>
   );
 }
