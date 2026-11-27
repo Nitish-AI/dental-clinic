@@ -20,12 +20,12 @@ import {
 import { Button } from "@/components/ui/button";
 
 import EnquiryTypeSelector from "@/components/contact/EnquiryTypeSelector";
+import ClientEnquiryForm from "@/components/contact/ClientEnquiryForm";
+import ProfessionalEnquiryForm from "@/components/contact/ProfessionalEnquiryForm";
 
 import { enquirySelectionContent } from "@/data/contact";
 
 import type { EnquiryType } from "@/types/contact";
-
-import ClientEnquiryForm from "@/components/contact/ClientEnquiryForm";
 
 interface EnquiryDialogProps {
   open: boolean;
@@ -80,38 +80,37 @@ export default function EnquiryDialog({
     <Dialog open={open} onOpenChange={handleOpenChange}>
       <DialogContent
         className="
-                    max-h-[92dvh]
-                    w-[calc(100%-2rem)]
-                    max-w-[860px]
-                    overflow-y-auto
-                    overscroll-contain
-                    rounded-2xl
-                    border border-slate-200
-                    bg-white
-                    p-5 text-slate-900
-                    sm:max-w-[860px]
-                    sm:p-8
-                "
+          max-h-[92dvh]
+          w-[calc(100%_-_2rem)]
+          max-w-[860px]
+          overflow-y-auto
+          overscroll-contain
+          rounded-2xl
+          border border-slate-200
+          bg-white
+          p-5 text-slate-900
+          sm:max-w-[860px]
+          sm:p-8
+        "
       >
-        {/* Dialog Header */}
-        <DialogHeader
-          className="
-                        items-center
-                        text-center
-                    "
-        >
-          {/* Heading Icon */}
+        {/* ================================= */}
+        {/* DIALOG HEADER */}
+        {/* ================================= */}
+
+        <DialogHeader className="items-center text-center">
+          {/* Dynamic Heading Icon */}
           <div
-            className="
-                            mx-auto mb-2
-                            flex size-14
-                            items-center
-                            justify-center
-                            rounded-full
-                            bg-blue-50
-                            text-[#102B50]
-                            sm:size-16
-                        "
+            className={`
+              mx-auto mb-2
+              flex size-14
+              items-center justify-center
+              rounded-full sm:size-16
+              ${
+                enquiryType === "professional"
+                  ? "bg-emerald-50 text-emerald-700"
+                  : "bg-blue-50 text-[#102B50]"
+              }
+            `}
           >
             <HeaderIcon
               aria-hidden="true"
@@ -120,35 +119,38 @@ export default function EnquiryDialog({
             />
           </div>
 
-          {/* Heading */}
+          {/* Dynamic Heading */}
           <DialogTitle
             className="
-                            text-center
-                            text-2xl font-semibold
-                            tracking-tight
-                            text-[#102B50]
-                            sm:text-3xl
-                        "
+              text-center
+              text-2xl font-semibold
+              tracking-tight
+              text-[#102B50]
+              sm:text-3xl
+            "
           >
             {dialogTitle}
           </DialogTitle>
 
-          {/* Description */}
+          {/* Dynamic Description */}
           <DialogDescription
             className="
-                            mx-auto mt-2
-                            max-w-xl
-                            text-center
-                            text-sm leading-relaxed
-                            text-slate-600
-                            sm:text-base
-                        "
+              mx-auto mt-2
+              max-w-xl
+              text-center
+              text-sm leading-relaxed
+              text-slate-600
+              sm:text-base
+            "
           >
             {dialogDescription}
           </DialogDescription>
         </DialogHeader>
 
-        {/* Dialog Body */}
+        {/* ================================= */}
+        {/* DIALOG BODY */}
+        {/* ================================= */}
+
         <div className="mt-3">
           {/* Enquiry Selection Screen */}
           {enquiryType === null && (
@@ -164,46 +166,20 @@ export default function EnquiryDialog({
                 variant="ghost"
                 onClick={handleBack}
                 className="
-                                    mb-5
-                                    text-[#102B50]
-                                    hover:bg-blue-50
-                                "
+                  mb-5
+                  text-[#102B50]
+                  hover:bg-blue-50
+                "
               >
                 <ArrowLeft aria-hidden="true" className="mr-2 size-4" />
                 Back to enquiry options
               </Button>
 
-              {/* Client Enquiry Placeholder */}
               {/* Client Enquiry Form */}
               {enquiryType === "client" && <ClientEnquiryForm />}
 
-              {/* Professional Enquiry Placeholder */}
-              {enquiryType === "professional" && (
-                <div
-                  className="
-                                        rounded-xl
-                                        border border-emerald-200
-                                        bg-emerald-50/50
-                                        p-8 text-center
-                                    "
-                >
-                  <BriefcaseMedical
-                    aria-hidden="true"
-                    className="
-                                            mx-auto mb-4
-                                            size-10 text-emerald-600
-                                        "
-                  />
-
-                  <h3 className="text-lg font-semibold text-[#102B50]">
-                    Professional Enquiry Form
-                  </h3>
-
-                  <p className="mt-2 text-sm text-slate-600">
-                    This form will be available soon.
-                  </p>
-                </div>
-              )}
+              {/* Professional Enquiry Form */}
+              {enquiryType === "professional" && <ProfessionalEnquiryForm />}
             </div>
           )}
         </div>

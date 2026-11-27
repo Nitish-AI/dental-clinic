@@ -1,5 +1,8 @@
 
-// Contact option types
+// ==========================================
+// CONTACT OPTION TYPES
+// ==========================================
+
 export type ContactOptionId =
     | "call"
     | "email"
@@ -13,7 +16,6 @@ export interface ContactOption {
     actionLabel: string;
 }
 
-// Contact section content
 export interface ContactSectionContent {
     eyebrow: string;
     title: string;
@@ -27,12 +29,14 @@ export interface ContactSectionContent {
     options: readonly ContactOption[];
 }
 
-// Enquiry types
+// ==========================================
+// ENQUIRY SELECTION TYPES
+// ==========================================
+
 export type EnquiryType =
     | "client"
     | "professional";
 
-// Enquiry selection card
 export interface EnquiryTypeOption {
     id: EnquiryType;
     title: string;
@@ -45,20 +49,15 @@ export interface EnquiryTypeOption {
     };
 }
 
-// Enquiry selection dialog content
 export interface EnquirySelectionContent {
     title: string;
     description: string;
     options: readonly EnquiryTypeOption[];
 }
 
-
-// Client enquiry types
-export type EnquiryRelationship =
-    | "self"
-    | "family"
-    | "carer"
-    | "other";
+// ==========================================
+// SHARED ENQUIRY TYPES
+// ==========================================
 
 export type EnquirySupportCategory =
     | "ndis"
@@ -71,13 +70,21 @@ export type PreferredContactMethod =
     | "email"
     | "either";
 
-// Reusable form option
 export interface FormOption<T extends string = string> {
     value: T;
     label: string;
 }
 
-// Client enquiry form content
+// ==========================================
+// CLIENT ENQUIRY TYPES
+// ==========================================
+
+export type EnquiryRelationship =
+    | "self"
+    | "family"
+    | "carer"
+    | "other";
+
 export interface ClientEnquiryFormContent {
     sections: {
         contactDetails: string;
@@ -98,7 +105,55 @@ export interface ClientEnquiryFormContent {
     privacyConsent: string;
     privacyPolicyLabel: string;
     privacyPolicyHref: string;
+    submitLabel: string;
+    submittingLabel: string;
+}
 
+// ==========================================
+// PROFESSIONAL ENQUIRY TYPES
+// ==========================================
+
+export type ProfessionalRole =
+    | "support-coordinator"
+    | "healthcare-professional"
+    | "plan-manager"
+    | "case-manager"
+    | "discharge-planner"
+    | "allied-health-professional"
+    | "organisation-representative"
+    | "other";
+
+export type ProfessionalEnquiryPurpose =
+    | "client-referral"
+    | "service-availability"
+    | "professional-partnership"
+    | "general-information"
+    | "other";
+
+export interface ProfessionalEnquiryFormContent {
+    sections: {
+        professionalDetails: string;
+        referralDetails: string;
+        additionalInformation: string;
+        contactPreference: string;
+    };
+
+    roleOptions:
+    readonly FormOption<ProfessionalRole>[];
+
+    purposeOptions:
+    readonly FormOption<ProfessionalEnquiryPurpose>[];
+
+    supportCategoryOptions:
+    readonly FormOption<EnquirySupportCategory>[];
+
+    contactMethodOptions:
+    readonly FormOption<PreferredContactMethod>[];
+
+    privacyNotice: string;
+    privacyConsent: string;
+    privacyPolicyLabel: string;
+    privacyPolicyHref: string;
     submitLabel: string;
     submittingLabel: string;
 }

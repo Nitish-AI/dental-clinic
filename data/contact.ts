@@ -3,9 +3,13 @@ import type {
     ContactSectionContent,
     EnquirySelectionContent,
     ClientEnquiryFormContent,
+    ProfessionalEnquiryFormContent,
 } from "@/types/contact";
 
-// Main Contact Section
+// ==========================================
+// MAIN CONTACT SECTION
+// ==========================================
+
 export const contactSectionContent = {
     eyebrow: "WE'RE HERE TO HELP",
 
@@ -50,8 +54,10 @@ export const contactSectionContent = {
     ],
 } as const satisfies ContactSectionContent;
 
+// ==========================================
+// ENQUIRY TYPE SELECTION
+// ==========================================
 
-// Enquiry Type Selection
 export const enquirySelectionContent = {
     title: "How can we help you?",
 
@@ -92,8 +98,10 @@ export const enquirySelectionContent = {
     ],
 } as const satisfies EnquirySelectionContent;
 
+// ==========================================
+// CLIENT ENQUIRY FORM
+// ==========================================
 
-// Client Enquiry Form
 export const clientEnquiryFormContent = {
     sections: {
         contactDetails: "Your contact details",
@@ -173,3 +181,102 @@ export const clientEnquiryFormContent = {
 
     submittingLabel: "Submitting enquiry...",
 } as const satisfies ClientEnquiryFormContent;
+
+// ==========================================
+// PROFESSIONAL ENQUIRY FORM
+// ==========================================
+
+export const professionalEnquiryFormContent = {
+    sections: {
+        professionalDetails: "Your professional details",
+        referralDetails: "Referral and support details",
+        additionalInformation: "Additional information",
+        contactPreference: "Contact preference",
+    },
+
+    // Professional role options
+    roleOptions: [
+        {
+            value: "support-coordinator",
+            label: "Support Coordinator",
+        },
+        {
+            value: "healthcare-professional",
+            label: "Healthcare Professional",
+        },
+        {
+            value: "plan-manager",
+            label: "Plan Manager",
+        },
+        {
+            value: "case-manager",
+            label: "Case Manager",
+        },
+        {
+            value: "discharge-planner",
+            label: "Discharge Planner",
+        },
+        {
+            value: "allied-health-professional",
+            label: "Allied Health Professional",
+        },
+        {
+            value: "organisation-representative",
+            label: "Organisation Representative",
+        },
+        {
+            value: "other",
+            label: "Other",
+        },
+    ],
+
+    // Purpose of enquiry
+    purposeOptions: [
+        {
+            value: "client-referral",
+            label: "Client Referral",
+        },
+        {
+            value: "service-availability",
+            label: "Service Availability",
+        },
+        {
+            value: "professional-partnership",
+            label: "Professional Partnership",
+        },
+        {
+            value: "general-information",
+            label: "General Information",
+        },
+        {
+            value: "other",
+            label: "Other",
+        },
+    ],
+
+    // Reuse existing support categories
+    supportCategoryOptions:
+        clientEnquiryFormContent.supportCategoryOptions,
+
+    // Reuse existing contact preferences
+    contactMethodOptions:
+        clientEnquiryFormContent.contactMethodOptions,
+
+    // Privacy information
+    privacyNotice:
+        "Please do not include client names, medical records, NDIS participant numbers or other confidential information. Contact our team to discuss appropriate referral arrangements.",
+
+    privacyConsent:
+        "I agree to being contacted regarding my professional enquiry.",
+
+    privacyPolicyLabel:
+        clientEnquiryFormContent.privacyPolicyLabel,
+
+    privacyPolicyHref:
+        clientEnquiryFormContent.privacyPolicyHref,
+
+    // Submit button
+    submitLabel: "Submit Professional Enquiry",
+
+    submittingLabel: "Submitting enquiry...",
+} as const satisfies ProfessionalEnquiryFormContent;
