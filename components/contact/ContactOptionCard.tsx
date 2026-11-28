@@ -31,6 +31,7 @@ export type ContactCardTheme = "light" | "dark";
 
 const themeStyles = {
   dark: {
+    layout: "flex-row",
     card: `
             border-sky-300/60
             bg-[#193C60]/90
@@ -39,7 +40,7 @@ const themeStyles = {
             hover:bg-[#244B73]
             hover:shadow-lg
             hover:shadow-sky-400/10
-            focus-visible:outline-sky-300
+            focus-visible:outline-sky-300            
         `,
 
     iconBox: "bg-[#356595] text-sky-200",
@@ -52,6 +53,7 @@ const themeStyles = {
   },
 
   light: {
+    layout: "flex-col",
     card: `
             border-slate-200
             bg-white
@@ -60,7 +62,7 @@ const themeStyles = {
             hover:bg-blue-50/40
             hover:shadow-lg
             hover:shadow-blue-900/5
-            focus-visible:outline-blue-500
+            focus-visible:outline-blue-500            
         `,
 
     iconBox: "bg-blue-50 text-[#102B50]",
@@ -138,6 +140,7 @@ export default function ContactOptionCard({
         disabled:opacity-60
         disabled:transform-none
         sm:p-6
+        ${styles.layout}
         ${styles.card}
     `;
 

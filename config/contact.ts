@@ -36,7 +36,14 @@ export const contactConfig = {
 
     // Service coverage
     serviceCoverage: {
-        areas: [] as string[],
+        areas: [
+            "Sydney",
+            "Western Sydney",
+            "South Western Sydney",
+            "Northern Sydney",
+            "Eastern Suburbs",
+            "Inner West",
+        ],
     },
 
     // Map configuration
