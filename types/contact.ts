@@ -205,3 +205,112 @@ export interface CallbackFormContent {
     submitLabel: string;
     submittingLabel: string;
 }
+
+// ==========================================
+// CONTACT PAGE TYPES
+// ==========================================
+
+export interface ContactPageAction {
+    label: string;
+    href: string;
+}
+
+export interface ContactPageImage {
+    src: string;
+    alt: string;
+}
+
+// ==========================================
+// CONTACT HERO
+// ==========================================
+
+export interface ContactHeroContent {
+    eyebrow: string;
+    title: string;
+    description: string;
+    image: ContactPageImage;
+    primaryAction: ContactPageAction;
+}
+
+// ==========================================
+// CONTACT OPTIONS
+// ==========================================
+
+export interface ContactOptionsContent {
+    eyebrow: string;
+    title: string;
+    description: string;
+    options: readonly ContactOption[];
+}
+
+// ==========================================
+// CONTACT INFORMATION
+// ==========================================
+
+export interface ContactInformationContent {
+    eyebrow: string;
+    title: string;
+    description: string;
+    image: ContactPageImage;
+
+    labels: {
+        location: string;
+        businessHours: string;
+        phone: string;
+        email: string;
+    };
+}
+
+// ==========================================
+// SERVICE COVERAGE
+// ==========================================
+
+export interface ContactServiceCoverageContent {
+    eyebrow: string;
+    title: string;
+    description: string;
+    areas: readonly string[];
+    notice: string;
+    action: ContactPageAction;
+}
+
+// ==========================================
+// FREQUENTLY ASKED QUESTIONS
+// ==========================================
+
+export interface ContactFAQItem {
+    id: string;
+    question: string;
+    answer: string;
+}
+
+export interface ContactFAQContent {
+    eyebrow: string;
+    title: string;
+    description: string;
+    items: readonly ContactFAQItem[];
+}
+
+// ==========================================
+// FINAL CONTACT CTA
+// ==========================================
+
+export interface ContactCTAContent {
+    eyebrow: string;
+    title: string;
+    description: string;
+    actionLabel: string;
+}
+
+// ==========================================
+// COMPLETE CONTACT PAGE
+// ==========================================
+
+export interface ContactPageContent {
+    hero: ContactHeroContent;
+    options: ContactOptionsContent;
+    information: ContactInformationContent;
+    serviceCoverage: ContactServiceCoverageContent;
+    faq: ContactFAQContent;
+    cta: ContactCTAContent;
+}

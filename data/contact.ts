@@ -5,6 +5,7 @@ import type {
     ClientEnquiryFormContent,
     ProfessionalEnquiryFormContent,
     CallbackFormContent,
+    ContactPageContent,
 } from "@/types/contact";
 
 // ==========================================
@@ -370,3 +371,180 @@ export const callbackFormContent = {
 
     submittingLabel: "Submitting request...",
 } as const satisfies CallbackFormContent;
+
+// ==========================================
+// CONTACT PAGE CONTENT
+// ==========================================
+
+export const contactPageContent = {
+
+    // ======================================
+    // HERO SECTION
+    // ======================================
+
+    hero: {
+        eyebrow: "WE'RE HERE FOR YOU",
+
+        title: "Let's start a conversation.",
+
+        description:
+            "Whether you're looking for support, making a referral or simply have a question, we're here to listen and help you explore the right options.",
+
+        image: {
+            src: "/images/contact/contact-hero.png",
+            alt: "Friendly healthcare receptionist in a welcoming reception area",
+        },
+
+        primaryAction: {
+            label: "Get in touch",
+            href: "#contact-options",
+        },
+    },
+
+    // ======================================
+    // CONTACT OPTIONS
+    // ======================================
+
+    options: {
+        eyebrow: "LET'S CONNECT",
+
+        title: "How can we help you?",
+
+        description:
+            "Choose the way you'd like to connect with us. We're here to make getting in touch as simple and comfortable as possible.",
+
+        options: contactSectionContent.options,
+    },
+
+    // ======================================
+    // CONTACT INFORMATION
+    // ======================================
+
+    information: {
+        eyebrow: "OUR CONTACT DETAILS",
+
+        title: "Connect with our team.",
+
+        description:
+            "Have a question about our services or need guidance on your next steps? Get in touch with our team to discuss your individual needs.",
+
+        image: {
+            src: "/images/contact/contact-team.webp",
+            alt: "Healthcare support professional having a conversation with an older client",
+        },
+
+        labels: {
+            location: "Our location",
+            businessHours: "Business hours",
+            phone: "Phone",
+            email: "Email",
+        },
+    },
+
+    // ======================================
+    // SERVICE COVERAGE
+    // ======================================
+
+    serviceCoverage: {
+        eyebrow: "SUPPORT IN YOUR COMMUNITY",
+
+        title: "Care that connects with your community.",
+
+        description:
+            "We understand the importance of accessing support in familiar and comfortable surroundings. Contact our team to explore support options in your area.",
+
+        areas: [],
+
+        notice:
+            "Service availability may vary depending on your location, individual needs and available resources.",
+
+        action: {
+            label: "Enquire About Your Area",
+            href: "#contact-options",
+        },
+    },
+
+    // ======================================
+    // FREQUENTLY ASKED QUESTIONS
+    // ======================================
+
+    faq: {
+        eyebrow: "COMMON QUESTIONS",
+
+        title: "Frequently asked questions.",
+
+        description:
+            "Find helpful information about contacting our team, making enquiries and exploring support options.",
+
+        items: [
+            {
+                id: "make-enquiry",
+
+                question: "How do I make an enquiry?",
+
+                answer:
+                    "You can select Send an Enquiry and choose the option that best suits your needs. Clients, families and professionals have dedicated enquiry forms.",
+            },
+            {
+                id: "enquire-for-someone",
+
+                question:
+                    "Can I enquire on behalf of someone else?",
+
+                answer:
+                    "Yes. You can make an initial enquiry on behalf of a family member or someone you care for. Please ensure you have appropriate permission before sharing their personal information.",
+            },
+            {
+                id: "professional-referral",
+
+                question:
+                    "How can professionals make a referral?",
+
+                answer:
+                    "Support coordinators, healthcare professionals and organisations can use the Professional Enquiry option to discuss referral opportunities and available support.",
+            },
+            {
+                id: "request-callback",
+
+                question: "Can I request a callback?",
+
+                answer:
+                    "The Request a Callback option allows you to provide your contact details and preferred day and time. Callback availability will depend on our team's operating hours and availability.",
+            },
+            {
+                id: "service-availability",
+
+                question:
+                    "How do I know if support is available in my area?",
+
+                answer:
+                    "Contact our team with your suburb or postcode and the type of support you are looking for. Our team can discuss service availability and possible next steps.",
+            },
+            {
+                id: "account-required",
+
+                question:
+                    "Do I need an account to make an enquiry?",
+
+                answer:
+                    "No. An account is not required to access our general enquiry or callback forms.",
+            },
+        ],
+    },
+
+    // ======================================
+    // FINAL CTA
+    // ======================================
+
+    cta: {
+        eyebrow: "YOUR JOURNEY STARTS HERE",
+
+        title: "We're here to listen.",
+
+        description:
+            "Your goals. Your choices. Your journey. Let's explore the support options that matter to you.",
+
+        actionLabel: "Send an Enquiry",
+    },
+
+} as const satisfies ContactPageContent;

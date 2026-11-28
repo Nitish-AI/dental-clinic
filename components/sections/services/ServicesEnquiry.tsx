@@ -14,6 +14,8 @@ import type { ContactOptionId } from "@/types/contact";
 import EnquiryDialog from "@/components/contact/EnquiryDialog";
 import CallbackDialog from "@/components/contact/CallbackDialog";
 
+import ContactActions from "@/components/contact/ContactActions";
+
 export default function ServicesEnquiry() {
   const { eyebrow, title, description, options } = contactSectionContent;
 
